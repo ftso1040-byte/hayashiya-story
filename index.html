@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【規格外の人生】学生時代に2億円蓄財、無実の逮捕から国連へ。林屋克三郎の痛快・大逆転劇</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    /* CSS Variables & Reset */
+    :root {
+      --color-bg: #fdfdfc;
+      --color-text: #2c2c2c;
+      --color-text-light: #555555;
+      --color-accent: #b08d57;
+      --font-serif: 'Shippori Mincho', serif;
+      --font-sans: 'Noto Sans JP', sans-serif;
+      --spacing-sm: clamp(1.5rem, 3vw, 2.5rem);
+      --spacing-md: clamp(3rem, 6vw, 5rem);
+      --spacing-lg: clamp(5rem, 10vw, 8rem);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      line-height: 1.8;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 文字の泣き防止 (Text Unit) */
+    .text-unit {
+      display: inline-block;
+      white-space: nowrap;
+      vertical-align: top;
+    }
+
+    /* Typography */
+    h1, h2, h3 { font-family: var(--font-serif); }
+    
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-sm);
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('https://images.unsplash.com/photo-1577985051167-0d49eec21977?q=80&w=2000&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.4);
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      color: #fff;
+      max-width: 900px;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1.3;
+      margin-bottom: var(--spacing-sm);
+      letter-spacing: 0.05em;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 500;
+      opacity: 1;
+      letter-spacing: 0.08em;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    /* Article Layout */
+    .article-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: var(--spacing-lg) var(--spacing-sm);
+    }
+
+    .section {
+      margin-bottom: var(--spacing-lg);
+      opacity: 0; /* for GSAP */
+      transform: translateY(30px); /* for GSAP */
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      color: var(--color-accent);
+      margin-bottom: var(--spacing-sm);
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--color-accent);
+    }
+
+    p {
+      font-size: clamp(1rem, 1.2vw, 1.125rem);
+      color: var(--color-text-light);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.03em;
+    }
+
+    .image-placeholder {
+      width: 100%;
+      height: clamp(200px, 40vw, 450px);
+      object-fit: cover;
+      border-radius: 8px;
+      margin: var(--spacing-sm) 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .blockquote {
+      border-left: 4px solid var(--color-accent);
+      padding: 1.5rem 2rem;
+      margin: var(--spacing-sm) 0;
+      background: rgba(176, 141, 87, 0.05);
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+      color: var(--color-text);
+      font-style: italic;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-content" id="heroContent">
+      <h1 class="hero-title">
+        <span class="text-unit">学生時代に2億円蓄財、</span><span class="text-unit">無実の逮捕から国連へ。</span><br>
+        <span class="text-unit">弊社代表・林屋克三郎</span>
+      </h1>
+      <p class="hero-subtitle">
+        <span class="text-unit">規格外のスケールで時代を駆け抜けた、</span><span class="text-unit">トップの真実の物語。</span>
+      </p>
+    </div>
+  </header>
+
+  <main class="article-container">
+    
+    <section class="section gsap-reveal">
+      <p>
+        <span class="text-unit">世の中には、</span><span class="text-unit">小説よりも奇なりと言いたくなるような、</span><span class="text-unit">途方もない人生を歩む人がいます。</span><span class="text-unit">手前味噌ではございますが、</span><span class="text-unit">弊社代表の林屋克三郎も、</span><span class="text-unit">間違いなくその一人です。</span>
+      </p>
+      <p>
+        <span class="text-unit">学生時代にして現在の価値で数億円を稼ぎ出し、</span><span class="text-unit">名だたる文豪と肩を並べ、</span><span class="text-unit">不屈の精神でどん底から這い上がって国際舞台へ。</span><span class="text-unit">本日は、</span><span class="text-unit">そんな規格外のスケールを持つ</span><span class="text-unit">代表・林屋の痛快なエピソードを通して、</span><span class="text-unit">弊社のルーツとスピリットをご紹介させてください。</span>
+      </p>
+    </section>
+
+    <section class="section gsap-reveal">
+      <h2 class="section-title"><span class="text-unit">華麗なる一族と</span><span class="text-unit">父の成功</span></h2>
+      <p>
+        <span class="text-unit">林屋のバックグラウンドは、</span><span class="text-unit">まさに「華麗なる一族」と呼ぶにふさわしいものです。</span><span class="text-unit">親戚には京都大学教授、駐スペイン大使、</span><span class="text-unit">そして現在の皇后雅子様の叔母や、</span><span class="text-unit">吉田茂の側近を務めた林屋亀次郎など、</span><span class="text-unit">歴史に名を残す偉人たちが顔を揃えます。</span>
+      </p>
+      <p>
+        <span class="text-unit">中でも特筆すべきは、</span><span class="text-unit">実父の圧倒的な行動力です。</span><span class="text-unit">戦艦大和や武蔵の鉄を納入するビジネスを手掛けた父は、</span><span class="text-unit">なんと三菱銀行の岩崎小弥太からの即決融資を引き出し、</span><span class="text-unit">一代で日本有数の資産家へと上り詰めました。</span><span class="text-unit">この「不可能を可能にする」DNAは、</span><span class="text-unit">確実に現在の林屋へと受け継がれています。</span>
+      </p>
+    </section>
+
+    <section class="section gsap-reveal">
+      <img src="https://images.unsplash.com/photo-1611095787946-fea5e9f8ce0e?q=80&w=1600&auto=format&fit=crop" alt="ビジネスの閃き" class="image-placeholder">
+      <h2 class="section-title"><span class="text-unit">学生時代の</span><span class="text-unit">規格外のビジネスセンス</span></h2>
+      <p>
+        <span class="text-unit">林屋のビジネスセンスは、</span><span class="text-unit">学生時代からすでに群を抜いていました。</span><span class="text-unit">まだ学生の身でありながら、</span><span class="text-unit">ダンスパーティーの主催や、</span><span class="text-unit">月2万円という破格のギャラでの女子高生の家庭教師などを通じて、</span><span class="text-unit">月に250〜300万円相当を稼ぎ出していたというから驚きです。</span>
+      </p>
+      <p>
+        <span class="text-unit">さらに、その資金を元手に株の運用などで資産を拡大。</span><span class="text-unit">大学を卒業する頃には、</span><span class="text-unit">なんと手元に現金2億円を所持していたのです。</span><span class="text-unit">当時の2億円がどれほどの価値を持っていたか想像するだけで、</span><span class="text-unit">その商才の凄まじさが伝わってまいります。</span>
+      </p>
+    </section>
+
+    <section class="section gsap-reveal">
+      <h2 class="section-title"><span class="text-unit">三菱銀行時代と</span><span class="text-unit">川端康成氏との運命の出会い</span></h2>
+      <p>
+        <span class="text-unit">大学卒業後、</span><span class="text-unit">林屋は三菱銀行に入行いたしました。</span><span class="text-unit">ここで彼は、支店長の教えをきっかけに、</span><span class="text-unit">逗子マリーナのマンションを全額融資で購入するという大胆な決断を下します。</span>
+      </p>
+      <p>
+        <span class="text-unit">これが、彼の人生に新たなドラマをもたらしました。</span><span class="text-unit">偶然にも同じ階に住んでいたのが、</span><span class="text-unit">ノーベル文学賞作家の川端康成氏だったのです。</span><span class="text-unit">二人は親交を深め、</span><span class="text-unit">林屋は川端氏の形見を譲り受けるほどの関係を築きました。</span><span class="text-unit">この出会いは、のちに井上靖氏や司馬遼太郎氏といった日本を代表する知性との親交へと繋がっていくことになります。</span>
+      </p>
+    </section>
+
+    <section class="section gsap-reveal">
+      <h2 class="section-title"><span class="text-unit">ホテル業界での大成功と</span><span class="text-unit">独自のゲリラ宣伝術</span></h2>
+      <p>
+        <span class="text-unit">独立後の活躍も、</span><span class="text-unit">常識の枠に収まるものではありませんでした。</span><span class="text-unit">川奈・プリンス・富士屋という、</span><span class="text-unit">誰もが知る大手3大ホテルチェーンの宣伝を、</span><span class="text-unit">なんと一人で引き受けたのです。</span>
+      </p>
+      <p>
+        <span class="text-unit">その手法は、既存の枠にとらわれないものでした。</span><span class="text-unit">電柱広告などを駆使した独自の「ゲリラ的手法」を展開し、</span><span class="text-unit">伊豆・箱根エリアの観光プロモーションにおいて大成功を収めます。</span><span class="text-unit">圧倒的な実行力とアイディアで、</span><span class="text-unit">ホテル業界に旋風を巻き起こしました。</span>
+      </p>
+    </section>
+
+    <section class="section gsap-reveal">
+      <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1600&auto=format&fit=crop" alt="法廷と正義" class="image-placeholder">
+      <h2 class="section-title"><span class="text-unit">どん底からの大逆転：</span><span class="text-unit">無実の逮捕から国連人権委員へ</span></h2>
+      <p>
+        <span class="text-unit">しかし、順風満帆に見えた人生に、</span><span class="text-unit">突如として暗雲が立ち込めます。</span><span class="text-unit">42歳の時、部下が起こした保険金詐欺の主犯と疑われ、</span><span class="text-unit">無実であるにも関わらず21日間も拘留されてしまったのです。</span>
+      </p>
+      <p>
+        <span class="text-unit">想像を絶する絶望の中、</span><span class="text-unit">林屋は最後まで無実を主張し続け、ついに潔白を証明しました。</span><span class="text-unit">驚くべきはここからです。</span><span class="text-unit">この理不尽な経験と、それに屈しなかった不屈の姿勢が国連の目に留まりました。</span><span class="text-unit">結果として、国連人権委員会の日本代表委員に選出され、</span><span class="text-unit">その後7年間にもわたり重責を務め上げるという、</span><span class="text-unit">映画のような大逆転劇を演じたのです。</span>
+      </p>
+    </section>
+
+    <section class="section gsap-reveal">
+      <h2 class="section-title"><span class="text-unit">人生を遊び尽くす、</span><span class="text-unit">痛快なメッセージ</span></h2>
+      <p>
+        <span class="text-unit">カジノで豪快に稼いだお金で</span><span class="text-unit">ウィーン・フィルのメンバーにご馳走したり、</span><span class="text-unit">世界的指揮者と交友を深めたりと、</span><span class="text-unit">林屋の人生は常にスケールが大きく、エネルギーに満ち溢れています。</span>
+      </p>
+      <p>
+        <span class="text-unit">波乱万丈な人生のすべてを受け入れた彼は、</span><span class="text-unit">よく私たち社員に、笑顔でこう語ります。</span>
+      </p>
+      <div class="blockquote">
+        <span class="text-unit">「今日5万円の持ち合わせがない今の自分の人生を、</span><span class="text-unit">全く恥じてはいない」</span>
+      </div>
+      <p>
+        <span class="text-unit">成功もどん底も味わい尽くし、</span><span class="text-unit">それでもなお己の人生を誇る。</span><span class="text-unit">その強靭な精神と軽やかな生き様は、</span><span class="text-unit">変化の激しい現代を生きる私たちやクライアントの皆様に、</span><span class="text-unit">「もっと人生を面白がれ」と背中を押してくれているようです。</span>
+      </p>
+    </section>
+
+  </main>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    // GSAP Animation Settings
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero Parallax Effect
+    gsap.to("#heroBg", {
+      yPercent: 30,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+
+    // Hero Text Fade-in
+    gsap.from("#heroContent", {
+      opacity: 0,
+      y: 50,
+      duration: 1.5,
+      ease: "power3.out",
+      delay: 0.2
+    });
+
+    // Section Scroll Reveal
+    const sections = document.querySelectorAll('.gsap-reveal');
+    sections.forEach((section) => {
+      gsap.to(section, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%", // ビューポートの80%の位置にきたら発火
+          toggleActions: "play none none reverse"
+        }
+      });
+    });
+  </script>
+</body>
+</html>
