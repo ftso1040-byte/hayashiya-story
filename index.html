@@ -140,6 +140,74 @@
       font-style: italic;
     }
 
+    /* Buttons Section */
+    .button-group-section {
+      margin-top: var(--spacing-lg);
+      padding-top: var(--spacing-md);
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .custom-button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.8rem 1.5rem;
+      background-color: transparent;
+      border: 1px solid var(--color-accent);
+      color: var(--color-text);
+      text-decoration: none;
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      text-align: center;
+      line-height: 1.5;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .custom-button::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-color: var(--color-accent);
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: -1;
+    }
+
+    .custom-button:hover {
+      color: #fff;
+      transform: translateY(-3px);
+      border-color: transparent;
+      box-shadow: 0 10px 20px rgba(176, 141, 87, 0.2);
+    }
+
+    .custom-button:hover::before {
+      transform: translateY(0);
+    }
+
+    .custom-button .btn-title {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .custom-button .btn-sub {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-top: 0.4rem;
+      opacity: 0.8;
+      letter-spacing: 0.03em;
+    }
+
   </style>
 </head>
 <body>
@@ -234,6 +302,26 @@
       <p>
         <span class="text-unit">成功もどん底も味わい尽くし、</span><span class="text-unit">それでもなお己の人生を誇る。</span><span class="text-unit">その強靭な精神と軽やかな生き様は、</span><span class="text-unit">変化の激しい現代を生きる私たちやクライアントの皆様に、</span><span class="text-unit">「もっと人生を面白がれ」と背中を押してくれているようです。</span>
       </p>
+    </section>
+
+    <!-- 追加されたボタングループ -->
+    <section class="section button-group-section gsap-reveal">
+      <h2 class="section-title"><span class="text-unit">林屋克三郎が手掛ける</span><span class="text-unit">プロジェクト</span></h2>
+      <div class="button-grid">
+        <a href="https://ftso1040-byte.github.io/hundred-face-LINE2/" class="custom-button">
+          <span class="btn-title">経営者の履歴書</span>
+          <span class="btn-sub">あなたの人生を、公式記録に。</span>
+        </a>
+        <a href="https://ftso1040-byte.github.io/seiran-proto-2/" class="custom-button">
+          <span class="btn-title">寿司　銀座聖藍</span>
+        </a>
+        <a href="#" class="custom-button">
+          <span class="btn-title">NPO法人<br>先端医療を支える会</span>
+        </a>
+        <a href="https://www.ginzamedicalclub.com/" class="custom-button">
+          <span class="btn-title">銀座メディカルクラブ</span>
+        </a>
+      </div>
     </section>
 
   </main>
