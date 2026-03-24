@@ -39,6 +39,22 @@
       vertical-align: top;
     }
 
+    /* スマホ画面での見切れ（横スクロール）防止 */
+    @media (max-width: 768px) {
+      .text-unit {
+        display: inline; /* スマホではinline-blockを解除し、自然に折り返させる */
+        white-space: normal; /* 画面幅を超える場合は折り返しを許可 */
+        word-break: auto-phrase; /* モダンブラウザ用：文節での改行を優先 */
+        overflow-wrap: break-word; /* 確実にはみ出しを防ぐ */
+      }
+      
+      /* タイトルなどの巨大な文字が画面を押し広げるのを防ぐ */
+      .hero-title, .hero-subtitle, .section-title {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+    }
+
     /* Typography */
     h1, h2, h3 { font-family: var(--font-serif); }
     
@@ -149,7 +165,8 @@
 
     .button-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      /* スマホ画面ではみ出さないよう、横幅の最低値を min(100%, 280px) に最適化 */
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
       gap: 1.5rem;
     }
 
@@ -247,7 +264,8 @@
     </section>
 
     <section class="section gsap-reveal">
-      <img src="https://images.unsplash.com/photo-1611095787946-fea5e9f8ce0e?q=80&w=1600&auto=format&fit=crop" alt="ビジネスの閃き" class="image-placeholder">
+      <!-- 確実に表示されやすい別のビジネス系高品質画像に差し替えました -->
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop" alt="ビジネスの閃き" class="image-placeholder">
       <h2 class="section-title"><span class="text-unit">学生時代の</span><span class="text-unit">規格外のビジネスセンス</span></h2>
       <p>
         <span class="text-unit">林屋のビジネスセンスは、</span><span class="text-unit">学生時代からすでに群を抜いていました。</span><span class="text-unit">まだ学生の身でありながら、</span><span class="text-unit">ダンスパーティーの主催や、</span><span class="text-unit">月2万円という破格のギャラでの女子高生の家庭教師などを通じて、</span><span class="text-unit">月に250〜300万円相当を稼ぎ出していたというから驚きです。</span>
@@ -308,17 +326,20 @@
     <section class="section button-group-section gsap-reveal">
       <h2 class="section-title"><span class="text-unit">林屋克三郎が手掛ける</span><span class="text-unit">プロジェクト</span></h2>
       <div class="button-grid">
-        <a href="https://ftso1040-byte.github.io/hundred-face-LINE2/" class="custom-button">
-          <span class="btn-title">経営者の履歴書</span>
+        <a href="https://ftso1040-byte.github.io/hundred-face-2/" class="custom-button">
+          <span class="btn-title">百人の顔</span>
           <span class="btn-sub">あなたの人生を、公式記録に。</span>
         </a>
-        <a href="https://ftso1040-byte.github.io/seiran-proto-2/" class="custom-button">
+        <a href="#" class="custom-button">
+          <span class="btn-title">林屋克三郎<br>公式プロフィール</span>
+        </a>
+        <a href="#" class="custom-button">
           <span class="btn-title">寿司　銀座聖藍</span>
         </a>
         <a href="#" class="custom-button">
           <span class="btn-title">NPO法人<br>先端医療を支える会</span>
         </a>
-        <a href="https://www.ginzamedicalclub.com/" class="custom-button">
+        <a href="#" class="custom-button">
           <span class="btn-title">銀座メディカルクラブ</span>
         </a>
       </div>
