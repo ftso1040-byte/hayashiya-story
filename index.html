@@ -156,6 +156,61 @@
       font-style: italic;
     }
 
+    /* Profile / Timeline Section */
+    .profile-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .profile-item {
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    @media (min-width: 600px) {
+      .profile-item {
+        flex-direction: row;
+      }
+    }
+
+    .profile-label {
+      font-weight: 700;
+      color: var(--color-accent);
+      min-width: 160px;
+      margin-bottom: 0.5rem;
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+    }
+
+    .profile-desc {
+      flex: 1;
+      color: var(--color-text);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    .profile-desc ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .profile-desc li {
+      position: relative;
+      padding-left: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .profile-desc li::before {
+      content: '・';
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+    }
+
     /* Buttons Section */
     .button-group-section {
       margin-top: var(--spacing-lg);
@@ -254,16 +309,6 @@
     </section>
 
     <section class="section gsap-reveal">
-      <h2 class="section-title"><span class="text-unit">華麗なる一族と</span><span class="text-unit">父の成功</span></h2>
-      <p>
-        <span class="text-unit">林屋のバックグラウンドは、</span><span class="text-unit">まさに「華麗なる一族」と呼ぶにふさわしいものです。</span><span class="text-unit">親戚には京都大学教授、駐スペイン大使、</span><span class="text-unit">そして現在の皇后雅子様の叔母や、</span><span class="text-unit">吉田茂の側近を務めた林屋亀次郎など、</span><span class="text-unit">歴史に名を残す偉人たちが顔を揃えます。</span>
-      </p>
-      <p>
-        <span class="text-unit">中でも特筆すべきは、</span><span class="text-unit">実父の圧倒的な行動力です。</span><span class="text-unit">戦艦大和や武蔵の鉄を納入するビジネスを手掛けた父は、</span><span class="text-unit">なんと三菱銀行の岩崎小弥太からの即決融資を引き出し、</span><span class="text-unit">一代で日本有数の資産家へと上り詰めました。</span><span class="text-unit">この「不可能を可能にする」DNAは、</span><span class="text-unit">確実に現在の林屋へと受け継がれています。</span>
-      </p>
-    </section>
-
-    <section class="section gsap-reveal">
       <!-- 確実に表示されやすい別のビジネス系高品質画像に差し替えました -->
       <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop" alt="ビジネスの閃き" class="image-placeholder">
       <h2 class="section-title"><span class="text-unit">学生時代の</span><span class="text-unit">規格外のビジネスセンス</span></h2>
@@ -320,6 +365,90 @@
       <p>
         <span class="text-unit">成功もどん底も味わい尽くし、</span><span class="text-unit">それでもなお己の人生を誇る。</span><span class="text-unit">その強靭な精神と軽やかな生き様は、</span><span class="text-unit">変化の激しい現代を生きる私たちやクライアントの皆様に、</span><span class="text-unit">「もっと人生を面白がれ」と背中を押してくれているようです。</span>
       </p>
+    </section>
+
+    <!-- 淡々と語る公式経歴パート -->
+    <section class="section gsap-reveal">
+      <h2 class="section-title"><span class="text-unit">林屋克三郎</span> <span class="text-unit">略歴・主な実績</span></h2>
+      <p>
+        <span class="text-unit">豪快なエピソードが先行しがちですが、</span><span class="text-unit">その実態は緻密な戦略と実行力を併せ持つ実務家です。</span><span class="text-unit">名だたる企業・公的機関から寄せられた信頼の歴史を、</span><span class="text-unit">客観的な記録としてここに記します。</span>
+      </p>
+      
+      <ul class="profile-list">
+        <li class="profile-item">
+          <div class="profile-label">生年月日</div>
+          <div class="profile-desc">1943年5月23日</div>
+        </li>
+        <li class="profile-item">
+          <div class="profile-label">学歴</div>
+          <div class="profile-desc">
+            <ul>
+              <li>麻布中学校・麻布高等学校 卒業</li>
+              <li>慶應義塾大学 法学部法律学科 卒業</li>
+            </ul>
+          </div>
+        </li>
+        <li class="profile-item">
+          <div class="profile-label">主な経歴</div>
+          <div class="profile-desc">
+            <ul>
+              <li>三菱銀行 入行</li>
+              <li>衆議院議員 園田直 秘書</li>
+              <li>経営コンサルタントとして独立（倒産寸前の企業など、多数の企業再建に従事）</li>
+            </ul>
+          </div>
+        </li>
+        <li class="profile-item">
+          <div class="profile-label">企画宣伝・販売促進</div>
+          <div class="profile-desc">
+            <ul>
+              <li>ホテル業界：プリンスホテルグループ、富士屋ホテルグループ、富士急ホテルグループ</li>
+              <li>交通・インフラ業界：ミクロネジアコンチネンタル航空、日本航空（JAL）、全日空（ANA）、JR東日本 ほか多数</li>
+            </ul>
+          </div>
+        </li>
+        <li class="profile-item">
+          <div class="profile-label">イベント主催</div>
+          <div class="profile-desc">
+            <ul>
+              <li>芦ノ湖音楽祭、山中湖音楽祭、軽井沢の森音楽祭</li>
+            </ul>
+          </div>
+        </li>
+        <li class="profile-item">
+          <div class="profile-label">メディア・出版</div>
+          <div class="profile-desc">
+            <ul>
+              <li>「豆州かわら版」「相州かわら版」「甲州かわら版」等、地域誌の創刊・発行</li>
+              <li>「旅行朝日」を買収・運営</li>
+            </ul>
+          </div>
+        </li>
+        <li class="profile-item">
+          <div class="profile-label">公職・所属等</div>
+          <div class="profile-desc">
+            <ul>
+              <li>元 国連人権委員会 日本代表委員</li>
+              <li>元 日本ペンクラブ 会員</li>
+              <li>元 ロータリークラブ 会員</li>
+            </ul>
+          </div>
+        </li>
+        <li class="profile-item">
+          <div class="profile-label">家族・親族</div>
+          <div class="profile-desc">
+            <ul>
+              <li><strong>父・林屋友次郎</strong>：文学博士、鉄鋼業・三菱鋼材創始者。戦後、三笠宮を名誉総裁とし友愛十字会を設立。我が国が敗戦で国家救済ができなかった時代に、私財を投じて海外からの帰還傷病兵の救済に尽力。</li>
+              <li><strong>母・林屋文子</strong></li>
+              <li><strong>兄・林屋礼二</strong>：法学博士、東北大学民事訴訟法名誉教授</li>
+              <li><strong>林屋亀次郎</strong>：吉田内閣国務大臣、元参議院議員会長</li>
+              <li><strong>林屋永吉</strong>：元スペイン大使</li>
+              <li><strong>林屋辰三郎</strong>：京都大学教授、日本史四天王の一人</li>
+              <li><strong>林屋晴三</strong>：陶芸研究家の第一人者</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
     </section>
 
     <!-- 追加されたボタングループ -->
