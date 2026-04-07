@@ -3,501 +3,505 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>林屋克三郎 プロフィール・略歴</title>
+  <title>百人の顔 | 未来へ贈るメッセージ 100の人生・100の哲学</title>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
-    /* CSS Variables & Reset */
+    /* =========================================
+       Variables & Base Styles
+    ========================================= */
     :root {
-      --color-bg: #fdfdfc;
+      --color-bg: #f9f9f8;
       --color-text: #2c2c2c;
-      --color-text-light: #555555;
-      --color-accent: #b08d57;
+      --color-primary: #3b5998; /* 知性と信頼を感じさせる深いブルー */
+      --color-accent: #d4af37;  /* 品格を示すゴールド */
       --font-serif: 'Shippori Mincho', serif;
       --font-sans: 'Noto Sans JP', sans-serif;
-      --spacing-sm: clamp(1.5rem, 3vw, 2.5rem);
-      --spacing-md: clamp(3rem, 6vw, 5rem);
-      --spacing-lg: clamp(5rem, 10vw, 8rem);
+      --spacing-section: clamp(4rem, 10vw, 8rem);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      background-color: var(--color-bg);
-      color: var(--color-text);
       font-family: var(--font-sans);
+      color: var(--color-text);
+      background-color: var(--color-bg);
       line-height: 1.8;
+      letter-spacing: 0.05em;
       overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
     }
 
-    /* 文字の泣き防止 (Text Unit) */
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      line-height: 1.4;
+      text-wrap: balance; /* タイトルのバランスを整える */
+    }
+
+    /* 文字の泣き（1文字だけの改行）と、英数字等の枠貫通を防ぐ設定 */
+    p, li {
+      text-wrap: pretty;
+      overflow-wrap: break-word;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* 独自のタイポグラフィ設定（意図した文節での改行を促す） */
     .text-unit {
       display: inline-block;
       white-space: nowrap;
       vertical-align: top;
     }
 
-    /* スマホ画面での見切れ（横スクロール）防止 */
-    @media (max-width: 768px) {
-      .text-unit {
-        display: inline; /* スマホではinline-blockを解除し、自然に折り返させる */
-        white-space: normal; /* 画面幅を超える場合は折り返しを許可 */
-        word-break: auto-phrase; /* モダンブラウザ用：文節での改行を優先 */
-        overflow-wrap: break-word; /* 確実にはみ出しを防ぐ */
-      }
-      
-      /* タイトルなどの巨大な文字が画面を押し広げるのを防ぐ */
-      .hero-title, .hero-subtitle, .section-title {
-        overflow-wrap: anywhere;
-        word-break: break-word;
-      }
-    }
-
-    /* Typography */
-    h1, h2, h3 { font-family: var(--font-serif); }
-    
-    .hero {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: var(--spacing-sm);
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background-image: url('https://images.unsplash.com/photo-1577985051167-0d49eec21977?q=80&w=2000&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
-      filter: brightness(0.4);
-      z-index: -1;
-    }
-
-    .hero-content {
-      text-align: center;
-      color: #fff;
-      max-width: 900px;
-    }
-
-    .hero-title {
-      font-size: clamp(2rem, 5vw, 4rem);
-      line-height: 1.3;
-      margin-bottom: var(--spacing-sm);
-      letter-spacing: 0.05em;
-    }
-
-    .hero-subtitle {
-      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-      font-weight: 500;
-      opacity: 1;
-      letter-spacing: 0.08em;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    }
-
-    /* Article Layout */
-    .article-container {
-      max-width: 800px;
+    .container {
+      width: 90%;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: var(--spacing-lg) var(--spacing-sm);
     }
 
-    .section {
-      margin-bottom: var(--spacing-lg);
-      opacity: 0; /* for GSAP */
-      transform: translateY(30px); /* for GSAP */
-    }
-
+    /* =========================================
+       Components
+    ========================================= */
     .section-title {
-      font-size: clamp(1.5rem, 3vw, 2.5rem);
-      color: var(--color-accent);
-      margin-bottom: var(--spacing-sm);
+      font-size: clamp(2rem, 4vw, 3rem);
+      text-align: center;
+      margin-bottom: clamp(2rem, 5vw, 4rem);
       position: relative;
-      padding-bottom: 1rem;
     }
 
     .section-title::after {
       content: '';
-      position: absolute;
-      left: 0; bottom: 0;
-      width: 50px;
+      display: block;
+      width: 40px;
       height: 2px;
       background-color: var(--color-accent);
+      margin: 1rem auto 0;
     }
 
-    p {
-      font-size: clamp(1rem, 1.2vw, 1.125rem);
-      color: var(--color-text-light);
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.03em;
-    }
-
-    .image-placeholder {
-      width: 100%;
-      height: clamp(200px, 40vw, 450px);
-      object-fit: cover;
-      border-radius: 8px;
-      margin: var(--spacing-sm) 0;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-
-    .blockquote {
-      border-left: 4px solid var(--color-accent);
-      padding: 1.5rem 2rem;
-      margin: var(--spacing-sm) 0;
-      background: rgba(176, 141, 87, 0.05);
-      font-family: var(--font-serif);
-      font-size: clamp(1.1rem, 1.5vw, 1.3rem);
-      color: var(--color-text);
-      font-style: italic;
-    }
-
-    /* Profile / Timeline Section */
-    .profile-list {
-      list-style: none;
-      padding: 0;
-      margin-top: 2rem;
-      border-top: 1px solid rgba(0,0,0,0.1);
-    }
-
-    .profile-item {
-      display: flex;
-      flex-direction: column;
-      padding: 1.5rem 0;
-      border-bottom: 1px solid rgba(0,0,0,0.1);
-    }
-
-    @media (min-width: 600px) {
-      .profile-item {
-        flex-direction: row;
-      }
-    }
-
-    .profile-label {
-      font-weight: 700;
-      color: var(--color-accent);
-      min-width: 160px;
-      margin-bottom: 0.5rem;
-      font-family: var(--font-serif);
-      font-size: 1.1rem;
-    }
-
-    .profile-desc {
-      flex: 1;
-      color: var(--color-text);
-      line-height: 1.7;
-      font-size: 1rem;
-    }
-
-    .profile-desc ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-
-    .profile-desc li {
-      position: relative;
-      padding-left: 1rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .profile-desc li::before {
-      content: '・';
-      position: absolute;
-      left: 0;
-      color: var(--color-accent);
-    }
-
-    /* Buttons Section */
-    .button-group-section {
-      margin-top: var(--spacing-lg);
-      padding-top: var(--spacing-md);
-      border-top: 1px solid rgba(0,0,0,0.08);
-    }
-
-    .button-grid {
-      display: grid;
-      /* スマホ画面ではみ出さないよう、横幅の最低値を min(100%, 280px) に最適化 */
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-      gap: 1.5rem;
-    }
-
-    .custom-button {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1.8rem 1.5rem;
-      background-color: transparent;
-      border: 1px solid var(--color-accent);
-      color: var(--color-text);
+    .btn {
+      display: inline-block;
+      padding: 1rem 3rem;
+      background-color: var(--color-primary);
+      color: #fff;
       text-decoration: none;
       font-family: var(--font-serif);
       font-size: 1.1rem;
       border-radius: 4px;
-      transition: all 0.3s ease;
-      text-align: center;
-      line-height: 1.5;
-      position: relative;
-      overflow: hidden;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
     }
 
-    .custom-button::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background-color: var(--color-accent);
-      transform: translateY(100%);
-      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      z-index: -1;
+    .btn:hover {
+      background-color: #2a4175;
     }
 
-    .custom-button:hover {
+    .btn-outline {
+      background-color: transparent;
+      color: var(--color-primary);
+      border: 1px solid var(--color-primary);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--color-primary);
       color: #fff;
-      transform: translateY(-3px);
-      border-color: transparent;
-      box-shadow: 0 10px 20px rgba(176, 141, 87, 0.2);
     }
 
-    .custom-button:hover::before {
-      transform: translateY(0);
+    /* =========================================
+       Hero Section
+    ========================================= */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+      padding: 0 5%;
+      background: linear-gradient(rgba(249, 249, 248, 0.8), rgba(249, 249, 248, 0.9)), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
     }
 
-    .custom-button .btn-title {
-      font-weight: 700;
-      letter-spacing: 0.05em;
+    .hero-content {
+      max-width: 800px;
     }
 
-    .custom-button .btn-sub {
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      margin-bottom: 1rem;
+      color: var(--color-primary);
       font-family: var(--font-sans);
-      font-size: 0.85rem;
-      font-weight: 400;
-      margin-top: 0.4rem;
-      opacity: 0.8;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.1em;
     }
 
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      margin-bottom: 2rem;
+      letter-spacing: 0.1em;
+    }
+
+    .hero-desc {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      font-family: var(--font-serif);
+    }
+
+    /* =========================================
+       Concept Section
+    ========================================= */
+    .concept {
+      padding: var(--spacing-section) 0;
+      background-color: #fff;
+    }
+
+    .concept-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .concept-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .concept-text, .concept-image {
+        width: 48%;
+      }
+    }
+
+    .concept-image img {
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .lead-text {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+      font-family: var(--font-serif);
+    }
+
+    /* =========================================
+       Values Section (3つの価値)
+    ========================================= */
+    .values {
+      padding: var(--spacing-section) 0;
+      background-color: var(--color-bg);
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    @media (min-width: 768px) {
+      .value-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .value-card {
+      background: #fff;
+      padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 4vw, 2rem);
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+      text-align: center;
+    }
+
+    .value-number {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      color: var(--color-accent);
+      opacity: 0.3;
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+
+    .value-title {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    /* =========================================
+       Book Info Section
+    ========================================= */
+    .book-info {
+      padding: var(--spacing-section) 0;
+      background-color: #fff;
+    }
+
+    .info-list {
+      list-style: none;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+
+    .info-list li {
+      padding: 1rem 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .info-list li span:first-child {
+      font-weight: 500;
+      width: 120px;
+      color: var(--color-primary);
+    }
+
+    .policy-box {
+      background-color: var(--color-bg);
+      padding: clamp(1.5rem, 5vw, 3rem);
+      border-radius: 8px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .policy-box h3 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    /* =========================================
+       Sponsorship Section
+    ========================================= */
+    .sponsorship {
+      padding: var(--spacing-section) 0;
+      background-color: var(--color-primary);
+      color: #fff;
+    }
+
+    .sponsorship .section-title {
+      color: #fff;
+    }
+
+    .sponsorship-card {
+      background-color: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: clamp(1.5rem, 5vw, 3rem);
+      border-radius: 8px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .price {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 6vw, 2.5rem);
+      text-align: center;
+      margin: 2rem 0;
+      color: var(--color-accent);
+    }
+
+    .price span {
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .special-price {
+      background-color: var(--color-accent);
+      color: var(--color-text);
+      padding: 1rem;
+      text-align: center;
+      border-radius: 4px;
+      font-weight: 500;
+      margin-top: 1.5rem;
+    }
+
+    /* =========================================
+       Footer / Contact
+    ========================================= */
+    .contact {
+      padding: var(--spacing-section) 0;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .contact p {
+      margin-bottom: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.875rem;
+      color: #666;
+      background-color: var(--color-bg);
+    }
+
+    /* GSAP Utility */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+    }
   </style>
 </head>
 <body>
 
-  <header class="hero">
-    <div class="hero-bg" id="heroBg"></div>
-    <div class="hero-content" id="heroContent">
-      <h1 class="hero-title">
-        <span class="text-unit">弊社代表・林屋克三郎</span>
-      </h1>
-      <p class="hero-subtitle">
-        <span class="text-unit">これまでの歩みと主な実績</span>
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-subtitle fade-up">未来へ贈るメッセージ</p>
+      <h1 class="hero-title fade-up">百人の顔</h1>
+      <p class="hero-desc fade-up">
+        <span class="text-unit">あなたの経営哲学を、</span>
+        <span class="text-unit">未来の子供たちへ。</span><br>
+        <span class="text-unit">100の人生・</span>
+        <span class="text-unit">100の哲学。</span>
       </p>
     </div>
-  </header>
+  </section>
 
-  <main class="article-container">
-    
-    <section class="section gsap-reveal">
-      <p>
-        <span class="text-unit">弊社代表、林屋克三郎の</span><span class="text-unit">これまでの経歴と実績をご紹介いたします。</span>
-      </p>
-      <p>
-        <span class="text-unit">金融機関での業務をはじめ、</span><span class="text-unit">独立後の企業再建、観光・出版業界での事業推進、</span><span class="text-unit">そして国際的な公職に至るまで、</span><span class="text-unit">多岐にわたる分野で活動してまいりました。</span><span class="text-unit">本ページでは、その客観的な記録をまとめております。</span>
-      </p>
-    </section>
+  <section class="concept">
+    <div class="container concept-wrapper">
+      <div class="concept-text fade-up">
+        <h2 class="section-title" style="text-align: left;">企画趣旨</h2>
+        <p class="lead-text">
+          <span class="text-unit">本企画は、</span>
+          <!-- スマホ幅を考慮して文節を細分化 -->
+          <span class="text-unit">単なる成功談集では</span><span class="text-unit">ありません。</span>
+        </p>
+        <p>
+          日本の各界で活躍する100名の経営者に、幼年時代・人生の転機・困難・意思決定の軸・経営哲学などを語っていただき、一冊の冊子として編纂します。経営者の思想・価値観を社会的記録として残し、経営という営みの本質を次世代に手渡すことを目的とした、記録性・公共性の高い出版企画です。
+        </p>
+      </div>
+      <div class="concept-image fade-up">
+        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="本を読む子供">
+      </div>
+    </div>
+  </section>
 
-    <!-- 略歴・主な実績パート -->
-    <section class="section gsap-reveal">
-      <h2 class="section-title"><span class="text-unit">略歴・主な実績</span></h2>
-      <ul class="profile-list">
-        <li class="profile-item">
-          <div class="profile-label">生年月日</div>
-          <div class="profile-desc">1943年5月23日</div>
-        </li>
-        <li class="profile-item">
-          <div class="profile-label">学歴</div>
-          <div class="profile-desc">
-            <ul>
-              <li>麻布中学校・麻布高等学校 卒業</li>
-              <li>慶應義塾大学 法学部法律学科 卒業</li>
-            </ul>
-          </div>
-        </li>
-        <li class="profile-item">
-          <div class="profile-label">主な経歴</div>
-          <div class="profile-desc">
-            <ul>
-              <li>三菱銀行 入行</li>
-              <li>衆議院議員 園田直 秘書</li>
-              <li>経営コンサルタントとして独立（企業再建等に従事）</li>
-            </ul>
-          </div>
-        </li>
-        <li class="profile-item">
-          <div class="profile-label">企画・プロモーション</div>
-          <div class="profile-desc">
-            <ul>
-              <li>ホテル業界：プリンスホテルグループ、富士屋ホテルグループ、富士急ホテルグループ</li>
-              <li>交通・インフラ業界：ミクロネジアコンチネンタル航空、日本航空（JAL）、全日空（ANA）、JR東日本 他</li>
-            </ul>
-          </div>
-        </li>
-        <li class="profile-item">
-          <div class="profile-label">イベント主催</div>
-          <div class="profile-desc">
-            <ul>
-              <li>芦ノ湖音楽祭、山中湖音楽祭、軽井沢の森音楽祭</li>
-            </ul>
-          </div>
-        </li>
-        <li class="profile-item">
-          <div class="profile-label">メディア・出版</div>
-          <div class="profile-desc">
-            <ul>
-              <li>「豆州かわら版」「相州かわら版」「甲州かわら版」等の地域誌から「旅行朝日」を買収・運営</li>
-            </ul>
-          </div>
-        </li>
-        <li class="profile-item">
-          <div class="profile-label">公職・所属等</div>
-          <div class="profile-desc">
-            <ul>
-              <li>元 国連人権委員会 日本代表委員</li>
-              <li>元 日本ペンクラブ 会員</li>
-              <li>元 ロータリークラブ 会員</li>
-            </ul>
-          </div>
-        </li>
-        <li class="profile-item">
-          <div class="profile-label">家族・親族</div>
-          <div class="profile-desc">
-            <ul>
-              <li><strong>父・林屋友次郎</strong>：文学博士、鉄鋼業・三菱鋼材創始者。戦後、三笠宮を名誉総裁とし友愛十字会を設立。我が国が敗戦で国家救済ができなかった時代に、私財を投じて海外からの帰還傷病兵の救済に尽力。</li>
-              <li><strong>母・林屋文子</strong></li>
-              <li><strong>兄・林屋礼二</strong>：法学博士、東北大学民事訴訟法名誉教授</li>
-              <li><strong>林屋亀次郎</strong>：吉田内閣国務大臣、元参議院議員会長</li>
-              <li><strong>林屋永吉</strong>：元スペイン大使</li>
-              <li><strong>林屋辰三郎</strong>：京都大学教授、日本史四天王の一人</li>
-              <li><strong>林屋晴三</strong>：陶芸研究家の第一人者</li>
-            </ul>
-          </div>
-        </li>
+  <section class="values">
+    <div class="container">
+      <h2 class="section-title fade-up">本誌に掲載される3つの価値</h2>
+      <div class="value-grid">
+        <div class="value-card fade-up">
+          <div class="value-number">01</div>
+          <h3 class="value-title">社会的証明</h3>
+          <p>選ばれた100名としての構成。第三者的・編集的視点で、経営者としての思想や社会への向き合い方を整理し、信頼性の高い形で可視化します。</p>
+        </div>
+        <div class="value-card fade-up" style="transition-delay: 0.1s;">
+          <div class="value-number">02</div>
+          <h3 class="value-title">出身校への寄付</h3>
+          <p>協賛いただいた経営者様ご本人の名義で、出身小学校へ掲載誌を100冊寄贈します。原点となる学び舎への還元であり、教育・地域貢献としての明確なストーリーを創出します。</p>
+        </div>
+        <div class="value-card fade-up" style="transition-delay: 0.2s;">
+          <div class="value-number">03</div>
+          <h3 class="value-title">ブランディング資産</h3>
+          <p>名刺やWebでは伝えきれない背景を伝えるストーリー型資産として、採用活動や社内研修、取引先との関係構築などに長期的にご活用いただけます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="book-info">
+    <div class="container">
+      <h2 class="section-title fade-up">冊子概要・構成</h2>
+      <ul class="info-list fade-up">
+        <li><span>想定読者</span> <span>小学校高学年（5・6年生）～大人</span></li>
+        <li><span>掲載人数</span> <span>経営者100名（限定）</span></li>
+        <li><span>判型／仕様</span> <span>A4判（オールカラー） / 1名につき2ページ掲載</span></li>
       </ul>
-    </section>
+      
+      <div class="policy-box fade-up">
+        <h3>編集方針</h3>
+        <p style="text-align: center; margin-bottom: 2rem;">小学生が一人でも読み切れることを最優先に制作します。</p>
+        <ul style="padding-left: 2rem; margin-bottom: 2rem;">
+          <li>専門用語・業界用語は極力使わない</li>
+          <li>一文を短く、具体例を多く</li>
+          <li>「考え方」「選び方」「失敗の乗り越え方」を中心に構成</li>
+        </ul>
+        <p><strong>主な掲載内容：</strong> 子どもの頃に大切にしていたこと / 失敗した経験とその時考えたこと / 仕事で迷ったときの判断のしかた / 今も大切にしている考え方 / 未来を生きる子どもたちへのメッセージ</p>
 
-    <!-- 以降、エピソード詳細パート -->
-    <section class="section gsap-reveal">
-      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop" alt="ビジネスの閃き" class="image-placeholder">
-      <h2 class="section-title"><span class="text-unit">金融機関での経験と</span><span class="text-unit">文化人との交流</span></h2>
-      <p>
-        <span class="text-unit">大学卒業後、三菱銀行に入行いたしました。</span><span class="text-unit">在職中、不動産（逗子マリーナ）を取得したことを契機に、</span><span class="text-unit">同じ建物に居住していたノーベル文学賞作家・川端康成氏と親交を結ぶこととなりました。</span>
-      </p>
-      <p>
-        <span class="text-unit">川端氏から形見を譲り受けるほどの関係を築き、</span><span class="text-unit">このご縁が、のちに井上靖氏や司馬遼太郎氏など、</span><span class="text-unit">日本を代表する文化人の方々との交流へと繋がっていきました。</span>
-      </p>
-    </section>
-
-    <section class="section gsap-reveal">
-      <h2 class="section-title"><span class="text-unit">ホテル・観光業界における</span><span class="text-unit">プロモーション実績</span></h2>
-      <p>
-        <span class="text-unit">独立後は経営コンサルタントとして活動し、</span><span class="text-unit">川奈・プリンス・富士屋といった大手ホテルチェーンの宣伝・プロモーション事業に携わりました。</span>
-      </p>
-      <p>
-        <span class="text-unit">電柱広告を活用するなど、当時の既存の手法にとらわれない企画を立案・実行し、</span><span class="text-unit">伊豆・箱根エリアを中心とした観光集客において実績を残し、</span><span class="text-unit">地域の活性化に寄与いたしました。</span>
-      </p>
-    </section>
-
-    <section class="section gsap-reveal">
-      <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1600&auto=format&fit=crop" alt="法廷と正義" class="image-placeholder">
-      <h2 class="section-title"><span class="text-unit">無実の証明と</span><span class="text-unit">国連人権委員への就任</span></h2>
-      <p>
-        <span class="text-unit">42歳の時、部下の不祥事に関連して不当な疑いをかけられ、</span><span class="text-unit">21日間にわたる拘留を経験いたしました。</span><span class="text-unit">しかし、一貫して潔白を主張し、法的な手続きを経て無実を証明いたしました。</span>
-      </p>
-      <p>
-        <span class="text-unit">この困難に対する姿勢と経験が評価され、</span><span class="text-unit">後に国連人権委員会の日本代表委員に選出されました。</span><span class="text-unit">その後7年間にわたり同職を務め、</span><span class="text-unit">国際的な視点から人権課題に取り組む重責を全ういたしました。</span>
-      </p>
-    </section>
-
-    <section class="section gsap-reveal">
-      <h2 class="section-title"><span class="text-unit">これからの歩みと</span><span class="text-unit">メッセージ</span></h2>
-      <p>
-        <span class="text-unit">国内外の幅広い人脈と、</span><span class="text-unit">数々の事業推進や困難を乗り越えてきた経験を糧に、</span><span class="text-unit">現在も様々なプロジェクトに取り組んでおります。</span>
-      </p>
-      <div class="blockquote">
-        <span class="text-unit">「今日5万円の持ち合わせがない今の自分の人生を、</span><span class="text-unit">全く恥じてはいない」</span>
+        <!-- スマホでのパディングも clamp で調整 -->
+        <div style="background-color: #fff; padding: clamp(1.5rem, 4vw, 2rem); border-radius: 8px; margin-top: 2rem; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+          <p style="margin-bottom: 1.5rem; font-weight: 500; line-height: 1.6;">
+            <!-- スマホ幅を考慮して文節を細分化 -->
+            <span class="text-unit">本誌に掲載される</span><span class="text-unit">100名の経営者の</span><span class="text-unit">選定は、</span><br>
+            <span class="text-unit">NPO法人先端医療を</span><span class="text-unit">ささえる会 理事長</span>
+            <span class="text-unit">林屋克三郎が行います。</span>
+          </p>
+          <a href="https://ftso1040-byte.github.io/hayashiya-story/ target"="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size: 0.95rem; padding: 0.75rem 2rem;">林屋克三郎の経歴はこちら</a>
+        </div>
       </div>
-      <p>
-        <span class="text-unit">この言葉にあるように、いかなる状況においても自身の歩みに誇りを持ち、</span><span class="text-unit">前を向いて進む姿勢を大切にしています。</span><span class="text-unit">これからも新たな価値の創造に尽力してまいります。</span>
-      </p>
-    </section>
+    </div>
+  </section>
 
-    <!-- 追加されたボタングループ -->
-    <section class="section button-group-section gsap-reveal">
-      <h2 class="section-title"><span class="text-unit">手掛けるプロジェクト</span></h2>
-      <div class="button-grid">
-        <a href="https://ftso1040-byte.github.io/hundred-face-2/" class="custom-button">
-          <span class="btn-title">百人の顔</span>
-          <span class="btn-sub">あなたの人生を、公式記録に。</span>
-        </a>
-        <a href="#" class="custom-button">
-          <span class="btn-title">林屋克三郎<br>公式プロフィール</span>
-        </a>
-        <a href="#" class="custom-button">
-          <span class="btn-title">寿司　銀座聖藍</span>
-        </a>
-        <a href="#" class="custom-button">
-          <span class="btn-title">NPO法人<br>先端医療を支える会</span>
-        </a>
-        <a href="#" class="custom-button">
-          <span class="btn-title">銀座メディカルクラブ</span>
-        </a>
+  <section class="sponsorship">
+    <div class="container">
+      <h2 class="section-title fade-up">協賛について</h2>
+      <div class="sponsorship-card fade-up">
+        <p style="text-align: center; margin-bottom: 2rem;">
+          <!-- スマホ幅を考慮して文節を細分化 -->
+          <span class="text-unit">協賛は単なる</span><span class="text-unit">費用負担ではなく、</span>
+          <span class="text-unit">未来への</span><span class="text-unit">社会貢献となります。</span>
+        </p>
+        <ul style="padding-left: 1.5rem; margin-bottom: 2rem; line-height: 2;">
+          <li>冊子への掲載（2ページ構成：ポートレート写真1点、インタビュー原稿）</li>
+          <li>編集・ライティング・校正・アートディレクション・誌面デザイン込み</li>
+          <li>掲載誌の進呈（保存用・贈呈用）</li>
+          <li><strong>出身小学校への掲載誌100冊寄贈（経営者様ご本人名義）</strong></li>
+        </ul>
+        
+        <div class="price">
+          600,000<span>円（税込）</span>
+        </div>
+        <p style="text-align: center; font-size: 0.9rem; opacity: 0.8;">※分割払い（契約時 / 取材実施時 / 納品時 各200,000円）も可能です。</p>
+
+        <div class="special-price">
+          【一括即金払い特典】 契約時一括お支払いの場合： 350,000円（税込）<br>
+          <span style="font-size: 0.85em; font-weight: normal; display: inline-block; margin-top: 0.5rem;">※取材・制作スケジュールを優先的に確保いたします。</span>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
+  <section class="contact">
+    <div class="container fade-up">
+      <h2 class="section-title">お問い合わせ・お申し込み</h2>
+      <p>NPO法人先端医療をささえる会</p>
+      <p>〒104-0061 東京都中央区銀座6丁目6-1 銀座風月堂ビル5F</p>
+      <p style="font-size: 1.25rem; font-weight: 500; margin: 1.5rem 0;">TEL: 03-3569-6700</p>
+      <p>担当携帯: 070-7493-8159（塩澤）</p>
+      <div style="margin-top: 2rem;">
+        <a href="mailto:shiozawa@actilus.co.jp" class="btn">メールで問い合わせる</a>
+      </div>
+    </div>
+  </section>
 
-  <!-- GSAP & ScrollTrigger -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <footer>
+    <p>&copy; 2026 NPO法人先端医療をささえる会. All Rights Reserved.</p>
+  </footer>
+
   <script>
-    // GSAP Animation Settings
     gsap.registerPlugin(ScrollTrigger);
 
-    // Hero Parallax Effect
-    gsap.to("#heroBg", {
-      yPercent: 30,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      }
-    });
-
-    // Hero Text Fade-in
-    gsap.from("#heroContent", {
-      opacity: 0,
-      y: 50,
-      duration: 1.5,
-      ease: "power3.out",
-      delay: 0.2
-    });
-
-    // Section Scroll Reveal
-    const sections = document.querySelectorAll('.gsap-reveal');
-    sections.forEach((section) => {
-      gsap.to(section, {
+    // Fade Up Animation for elements with .fade-up class
+    gsap.utils.toArray('.fade-up').forEach(element => {
+      gsap.to(element, {
+        scrollTrigger: {
+          trigger: element,
+          start: "top 85%",
+          toggleActions: "play none none reverse"
+        },
         opacity: 1,
         y: 0,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%", // ビューポートの80%の位置にきたら発火
-          toggleActions: "play none none reverse"
-        }
+        duration: 0.8,
+        ease: "power2.out"
       });
     });
   </script>
